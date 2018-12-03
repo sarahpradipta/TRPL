@@ -82,11 +82,15 @@
               <div class="well well-trans">
                 <div class="wow fadeInRight" data-wow-delay="0.1s">
 
-                  <ul class="lead-list">
+                  <!-- <ul class="lead-list"> -->
                     <?php
 
                     include("database.php");
                     $sql = mysqli_query($db, "SELECT id, nama_pelajaran, deskripsi, tentang  FROM pelajaran");
+                    $datas = array();
+                    while ($kelas = mysqli_fetch_array($sql)){
+                      $datas[] = $kelas;
+                    }
                     ?>
 
                     <table class="table table-dark">
@@ -99,95 +103,22 @@
                       <!-- fungsi untuk menambah row -->
                       <?php if (mysqli_num_rows($sql)>0) {?>
                       <?php
-                          while ($data = mysqli_fetch_array($sql)){
-                      ?>
+
+
+                            foreach ($datas as $data) {
+
+                        ?>
                       <tr>
                           <td scope="row"><?php echo $data ["id"];?></td>
                           <td scope="row"><?php echo $data ["nama_pelajaran"];?></td>
                           <td scope="row"><?php echo $data ["deskripsi"];?></td>
                           <td scope="row"><?php echo $data ["tentang"];?></td>
-
                           <td scope="row"><button type="button" class="btn btn-light" data-toggle="modal" data-target="#modaledit<?php echo $data['id']; ?>"><span>Edit</span></button></td>
-                          <td scope="row"><a class="btn btn-light" href="hapus.php?id=<?php echo $data["id"]; ?>"><span>Hapus</span></a></td>
+                          <td scope="row"><a class="btn btn-light" href="hapuskelas.php?id=<?php echo $data["id"]; ?>"><span>Hapus</span></a></td>
                       </tr>
 
-                      <div class="modal fade" id="modaledit<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Edit Data</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-
-          <div class="modal-body">
-          <form action="edit.php" method="POST">
-
-            <div class="form-group">
-                <label for="exampleInputPassword1">Nama Pelajaran</label>
-                <input type="text" class="form-control" id="exampleInputNamapelajaran" placeholder="nama_pelajaran"
-                name="nama_pelajaran" value="<?php echo $data ["nama_pelajaran"];?>">
-            </div>
-
-      <div class="form-group">
-          <label for="exampleInputPassword1">Deskripsi</label>
-          <input type="text" class="form-control" id="exampleInputDeskripsi" placeholder="deskripsi"
-          name="deskripsi" value="<?php echo $data ["deskripsi"];?>">
-      </div>
-      <div class="form-group">
-          <label for="exampleInputPassword1">Tentang</label>
-          <input type="text" class="form-control" id="exampleInputTentang" placeholder="tentang"
-          name="tentang" value="<?php echo $data ["tentang"];?>">
-      </div>
-
-      <button type="submit" class="btn btn-primary">Submit</button>
-
-    </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Edit</button>
-            </div>
-
-                                        <?php }} ?>
-                            </table>
-                    <!-- <p class="text-center wow bounceIn" data-wow-delay="0.4s">
-                      <p>Website
-                        <a href="#">
-                          <span class="glyphicon glyphicon-edit"></span>
-                        </a>
-                      </p>
-
-                      <p>Design
-                        <a href="#">
-                          <span class="glyphicon glyphicon-edit"></span>
-                        </a>
-                      </p>
-
-                      <p>Database
-                        <a href="#">
-                          <span class="glyphicon glyphicon-edit"></span>
-                        </a>
-                      </p>
-
-                      <p>Networking
-                        <a href="#">
-                          <span class="glyphicon glyphicon-edit"></span>
-                        </a>
-                      </p>
-
-                      <p>Keamanan Sistem
-                        <a href="#">
-                          <span class="glyphicon glyphicon-edit"></span>
-                        </a>
-                      </p>
-
-                      <p>Artificial Intelligence
-                        <a href="#">
-                          <span class="glyphicon glyphicon-edit"></span>
-                        </a>
-                      </p> -->
+                    <?php }} ?>
+                  </table>
 
                   <p class="text-center wow bounceIn" data-wow-delay="0.4s">
                   <a href="tambahkelas.php" class="btn btn-skin btn-lg">Tambah Kelas <i class="fa fa-angle-right"></i></a>
@@ -305,6 +236,52 @@
 
   </div>
   <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+
+  <div class="modal fade" id="modaledit<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Edit Data</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="modal-body">
+        <form action="editpelajaran.php" method="POST">
+
+          <div class="form-group">
+              <label for="exampleInputPassword1">Nama Pelajaran</label>
+              <input type="text" class="form-control" id="exampleInputNamapelajaran" placeholder="nama_pelajaran"
+              name="nama_pelajaran" value="<?php echo $data ["nama_pelajaran"];?>">
+          </div>
+  <input type="hidden" name="id" value="<?php echo $data ["id"];?>">
+    <div class="form-group">
+        <label for="exampleInputPassword1">Deskripsi</label>
+        <input type="text" class="form-control" id="exampleInputDeskripsi" placeholder="deskripsi"
+        name="deskripsi" value="<?php echo $data ["deskripsi"];?>">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Tentang</label>
+        <input type="text" class="form-control" id="exampleInputTentang" placeholder="tentang"
+        name="tentang" value="<?php echo $data ["tentang"];?>">
+    </div>
+
+    <div class="form-group">
+    <input type="hidden" class="form-control"
+    id="exampleInputId" name="id"
+    value="<?php echo $data ["id"];?>">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Edit</button>
+          </div>
+
 
   <!-- Core JavaScript Files -->
   <script src="js/jquery.min.js"></script>

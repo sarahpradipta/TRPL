@@ -1,6 +1,3 @@
-<?php
-include 'database.php';
- ?>
 <html lang="en">
 <head>
 	<title>STUDY INFORMATION TECHNOLOGY</title>
@@ -38,17 +35,14 @@ include 'database.php';
 			<div class="login100-more" style="background-image: url('images/poster1.jpg');"></div>
 
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
-        <form action="" method = "post">
-				<!-- <form class="login100-form validate-form" method="post"> -->
+        <form action="daftar.php" method ="post">
 					<span class="login100-form-title p-b-59">
 						Sign Up
 					</span>
 
-
-
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
 						<span class="label-input100">Nama Lengkap</span>
-						<input class="input100" type="text" name="name" placeholder="Nama Lengkap" required>
+						<input class="input100" type="text" name="nama" placeholder="Nama Lengkap" required>
 						<span class="focus-input100"></span>
 					</div>
 
@@ -82,43 +76,14 @@ include 'database.php';
 						<span class="focus-input100"></span>
 					</div>
 
+					<!-- <div class="flex-m w-full p-b-33">
+              <input type="radio" name="level" value="1"> Pelajar
+              <input type="radio" name="level" value="2"> Pemateri
 
-					<!-- <div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">
-						<span class="label-input100">Repeat Password</span>
-						<input class="input100" type="password" name="repeat-pass" placeholder="*************" required>
-						<span class="focus-input100"></span>
 					</div> -->
+          <input type="submit" class="login100-form-btn" value = "Sign Up" name="submit">
+          <a href="index.php"><input type="button" class="btn btn-primary" value = "Sign In"></a>
 
-					<div class="flex-m w-full p-b-33">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								<span class="txt1">
-									Ingat saya sebagai
-									<a href="#" class="txt2 hov1">
-										Pelajar atau Pengajar
-									</a>
-								</span>
-							</label>
-						</div>
-
-
-					</div>
-
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-              <a href="level1.php">
-							<button type = "submit" class="login100-form-btn" >
-								Sign Up
-							</button></a>
-						</div>
-
-						<a href="index.php" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
-							Sign in
-							<i class="fa fa-long-arrow-right m-l-5"></i>
-						</a>
-					</div>
 				</form>
 			</div>
 		</div>
@@ -139,36 +104,9 @@ include 'database.php';
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+  <script src="jquery.min.js"></script>
+  <script src="js/main.js"></script>
 	<script src="database.php"></script>
-
-<?php
-if (isset($_POST['submit'])) {
-	$nama = $_POST['nama'];
-	$email = $_POST['email'];
-	$alamat = $_POST['alamat'];
-	$hp = $_POST['hp'];
-	$username = $_POST['username'];
-	$pass = $_POST['pass'];
-	$level = 1;
-
-	$sql = "INSERT INTO 'users' ( nama , email ,alamat ,hp ,username ,pass ,level );
-	VALUES ('".$nama."','".$email."','".$alamat."','".$hp."','".$username."','".$pass."','".$level."')";
-	mysqli_query($conn,$sql);
-
-  if($conn->query($query)=== TRUE){
-    header('level1.php');
-  } else {
-    echo "Pendaftaran Gagal";
-  }
-	?>
-
-	<script type ="text/javascript">
-	alert("Selamat Anda telah terdaftar")
-	</script>
-	<?php
-}
- ?>
 
 </body>
 </html>

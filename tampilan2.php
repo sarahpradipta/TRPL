@@ -112,7 +112,7 @@ $sql=mysqli_query($db, "SELECT * FROM pelajaran")
         <?php
 
         include("database.php");
-        $sql = mysqli_query($db, "SELECT judul_materi, isi, link  FROM materi");
+        $sql = mysqli_query($db, "SELECT judul_materi, isi, link  FROM materi WHERE id_pelajaran = $id_pelajaran");
         ?>
 
         <!-- <div class="col">
@@ -137,11 +137,11 @@ $sql=mysqli_query($db, "SELECT * FROM pelajaran")
             <td scope="row"><?php echo $data ["isi"];?></td>
             <td scope="row"><?php echo $data ["link"];?></td>
 
-            <td scope="row"><button type="button" class="btn btn-light" data-toggle="modal" data-target="#modaledit<?php echo $data['id']; ?>"><span>Pilih</span></button></td>
-            <td scope="row"><a class="btn btn-light" href="hapus.php?id=<?php echo $data["id"]; ?>"><span>Hapus</span></a></td>
+            <td scope="row"><button type="button" class="btn btn-light" data-toggle="modal" data-target="#modaledit<?php echo $data['id_pelajaran']; ?>"><span>Pilih</span></button></td>
+            <td scope="row"><a class="btn btn-light" href="hapus.php?id=<?php echo $data["id_pelajaran"]; ?>"><span>Hapus</span></a></td>
         </tr>
 
-        <div class="modal fade" id="modaledit<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="modaledit<?php echo $data['id_pelajaran']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered" role="document">
 <div class="modal-content">
 <div class="modal-header">

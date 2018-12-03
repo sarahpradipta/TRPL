@@ -11,10 +11,10 @@ if (isset($_POST['submit'])) {
 
 
 	$sql = "INSERT INTO `users` (`nama`, `email`, `alamat`, `hp`, `username`, `pass`, `level`)
-  VALUES ( '$nama', '$email', '$alamat', '$hp', '$username', '$pass', '1')";
+  VALUES ( '$nama', '$email', '$alamat', '$hp', '$username', '$pass', '2')";
 
   if($db -> query ($sql) === TRUE){
-    header('location:index.php');
+    header('location:pengajar3.php');
   } else {
     echo "Pendaftaran Gagal";
   }

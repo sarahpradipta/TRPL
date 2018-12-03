@@ -1,4 +1,3 @@
-
 <html lang="en">
 
 <head>
@@ -28,9 +27,6 @@
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-<?php
-include('database.php');
-?>
 
 
   <div id="wrapper">
@@ -62,10 +58,9 @@ include('database.php');
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="pelajar1.php">Pelajar</a></li>
-            <li><a href="#kelas">Kelas</a></li>
-            <li><a href="#pengajar">Pengajar</a></li>
-            <li><a href="ujian1.php">Ujian</a></li>
+            <li class="active"><a href="pelajar2.php">Pelajar</a></li>
+            <li><a href="pengajar2.php">Pengajar</a></li>
+            <li><a href="ujian2.php">Ujian</a></li>
 
           </ul>
           </div
@@ -78,61 +73,41 @@ include('database.php');
     <section id="home" class="home">
       <div class="home-content">
       <div class="container">
+        <form action="" method="post">
           <div class="row">
-            <div class="col-lg-6">
-
+            <div class="col-lg-12">
               <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
                 <br><br><br><br><br><br><br><br><br><br>
-                <h2 class="h-ultra">STUDY INFORMATION TECHNOLOGY</h2>
-
-                <form class="navbar-form navbar-right">
-
-
-                    <div class="btn-group">
-
-                    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <?=$_SESSION['nama'];?>  <span class="caret">  </span>
-                    </button>
-                    <ul class="dropdown-menu">
-                    <li role="presentation" class="active"><a href="index.php" style="color : white" onclick="return confirm('Yakin untuk keluar?');">  <span class="glyphicon glyphicon-log-out" aria-hidden="true">Keluar</span> </a></li>
-                    </form>
-
+                <h2 class="h-ultra">
+                  Data Ujian</h2>
               </div>
-              <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.1s">
-                <h4 class="h-light">Solusi belajar nyaman dan menyenangkan</h4>
-              </div>
+
               <div class="well well-trans">
                 <div class="wow fadeInRight" data-wow-delay="0.1s">
 
                   <ul class="lead-list">
-                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Belajar secara Online</strong><br />Materi online dan video online dengan mudah ditonton</span></li>
-                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Pengajar menarik</strong><br />Pengajar lulus seleksi, terjamin ilmunya</span></li>
-                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Ujian menarik jadi tambah pintar</strong><br />Dapatkan ujian sebagai hasil anda memahami ilmu</span></li>
-                  </ul>
-                  <p class="text-right wow bounceIn" data-wow-delay="0.4s">
-                    <a href="#kelas" class="btn btn-skin btn-lg">Masuk Kelas <i class="fa fa-angle-right"></i></a>
-                  </p>
+                    <br></br>
+                    </ul>
+                  <!-- <p class="text-right wow bounceIn" data-wow-delay="0.4s">
+                    <a href="tampilan2.php" class="btn btn-skin btn-lg">Mulai Kelas <i class="fa fa-angle-right"></i></a>
+                  </p> -->
                 </div>
               </div>
 
 
             </div>
-            <div class="col-lg-6">
+            <!-- <div class="col-lg-12">
               <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
                 <br><br><br><br><br>
                 <img src="img/dummy/grup.png" class="img-responsive" alt="" />
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
     </section>
+    <!-- <section id="boxes" class="home-section paddingtop-80">
 
-    <!-- /Section: pelajar -->
-
-    <!-- Section: boxes -->
-    <section id="boxes" class="home-section paddingtop-80">
-
-      <div class="container">
         <div class="row">
           <div class="col-sm-3 col-md-3">
             <div class="wow fadeInUp" data-wow-delay="0.2s">
@@ -171,49 +146,10 @@ include('database.php');
           </div>
 
         </div>
-      </div>
+      </div> -->
 
-    </section>
-    <!-- /Section: boxes -->
+    <!-- </section>
 
-
-    <section id="callaction" class="home-section paddingtop-40">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="callaction bg-gray">
-              <div class="row">
-                <div class="col-md-8">
-                  <div class="wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="cta-text">
-                      <h3>Apa yang ingin anda pelajari ?</h3>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <?php
-      $list = [];
-      $sql = "select * from pelajaran order by id desc limit 0,6";
-      $result = $db->query($sql);
-      if (mysqli_num_rows($result)) {
-        while ($row = mysqli_fetch_assoc($result)){
-          $list[] = array(
-            'id' => $row['id'],
-            'nama_pelajaran' => $row['nama_pelajaran'],
-            'deskripsi' => $row['deskripsi']
-          );
-        }
-      }
-     ?>
-
-    <!-- Section: kelass -->
     <section id="kelas" class="home-section nopadding paddingtop-60">
 
       <div class="container">
@@ -221,142 +157,22 @@ include('database.php');
         <div class="row">
           <div class="col-sm-6 col-md-6">
             <div class="wow fadeInUp" data-wow-delay="0.2s">
-              <img src="img/dummy/di1.jpg" class="img-responsive" alt="" />
+              <br>lama pembelajaran : </br>
+              <br>bla bla bla : </br>
             </div>
           </div>
           <div class="col-sm-3 col-md-3">
-
-            <?php foreach ($list as $row){
-              ?>
             <div class="wow fadeInRight" data-wow-delay="0.1s">
-              <div class="kelas-box">
-                <div class="kelas-icon">
-                  <span class="fa fa-stethoscope fa-3x"></span>
-                </div>
                 <div class="kelas-desc">
-                  <a href="tampilankelas.php?id=<?=$row['id']?>"><h5 class="h-light"><?=$row['nama_pelajaran']?></h5>
+                  <a href="wabsite.php"><h5 class="h-light">About this</h5>
                   </a>
-                  <p><?=$row['deskripsi']?> </p>
+                  <p>Belajar tentang HTML, CSS, JavaScript, PHP, Phyton dll. </p>
                 </div>
-              </div>
-            </div>
-            <?php
-}
-             ?>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-    <!-- /Section: kelass -->
-
-
-    <!-- Section: team -->
-    <section id="pengajar" class="home-section bg-gray paddingbot-60">
-      <div class="container marginbot-50">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2">
-            <div class="wow fadeInDown" data-wow-delay="0.1s">
-              <div class="section-heading text-center">
-                <h2 class="h-bold">Pengajar</h2>
-                <p>Berikut adalah pengajar yang terpilih</p>
-              </div>
-            </div>
-            <div class="divider-short"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-
-            <div id="filters-container" class="cbp-l-filters-alignLeft">
-              <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">All (
-                <div class="cbp-filter-counter"></div>)</div>
-              <div data-filter=".website" class="cbp-filter-item">Website (
-                <div class="cbp-filter-counter"></div>)</div>
-              <div data-filter=".design" class="cbp-filter-item">Design (
-                <div class="cbp-filter-counter"></div>)</div>
-              <div data-filter=".networking" class="cbp-filter-item">Networking (
-                <div class="cbp-filter-counter"></div>)</div>
-            </div>
-
-            <div id="grid-container" class="cbp-l-grid-team">
-              <ul>
-                <li class="cbp-item design">
-                  <a href="pengajar/member1.html" class="cbp-caption cbp-singlePage">
-                    <div class="cbp-caption-defaultWrap">
-                      <img src="img/team/d1.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                      <div class="cbp-l-caption-alignCenter">
-                        <div class="cbp-l-caption-body">
-                          <div class="cbp-l-caption-text">VIEW PROFILE</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="pengajar/member1.html" class="cbp-singlePage cbp-l-grid-team-name">Ahmad Dahlan</a>
-                  <div class="cbp-l-grid-team-position">design</div>
-                </li>
-                <li class="cbp-item website">
-                  <a href="pengajar/member2.html" class="cbp-caption cbp-singlePage">
-                    <div class="cbp-caption-defaultWrap">
-                      <img src="img/team/d2.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                      <div class="cbp-l-caption-alignCenter">
-                        <div class="cbp-l-caption-body">
-                          <div class="cbp-l-caption-text">VIEW PROFILE</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="pengajar/member2.html" class="cbp-singlePage cbp-l-grid-team-name">Sarah Amberlyn</a>
-                  <div class="cbp-l-grid-team-position">website</div>
-                </li>
-                <li class="cbp-item website">
-                  <a href="pengajar/member3.html" class="cbp-caption cbp-singlePage">
-                    <div class="cbp-caption-defaultWrap">
-                      <img src="img/team/d3.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                      <div class="cbp-l-caption-alignCenter">
-                        <div class="cbp-l-caption-body">
-                          <div class="cbp-l-caption-text">VIEW PROFILE</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="pengajar/member3.html" class="cbp-singlePage cbp-l-grid-team-name">Alzena Dave</a>
-                  <div class="cbp-l-grid-team-position">website</div>
-                </li>
-                <li class="cbp-item networking">
-                  <a href="pengajar/member4.html" class="cbp-caption cbp-singlePage">
-                    <div class="cbp-caption-defaultWrap">
-                      <img src="img/team/d4.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                      <div class="cbp-l-caption-alignCenter">
-                        <div class="cbp-l-caption-body">
-                          <div class="cbp-l-caption-text">VIEW PROFILE</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="pengajar/member4.html" class="cbp-singlePage cbp-l-grid-team-name">Adam Malik</a>
-                  <div class="cbp-l-grid-team-position">networking</div>
-                </li>
-
-              </ul>
             </div>
           </div>
         </div>
       </div>
-
-    </section>
+    </section> -->
 
     <footer>
 

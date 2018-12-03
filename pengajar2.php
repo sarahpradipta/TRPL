@@ -1,3 +1,6 @@
+<?php
+require_once 'database.php';
+ ?>
 <html lang="en">
 
 <head>
@@ -58,10 +61,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="pelajar2.php">Pelajar</a></li>
-            <!-- <li><a href="#kelas">Kelas</a></li> -->
+            <li class="active"><a href="level2.php">home</a></li>
+            <li ><a href="pelajar2.php">Pelajar</a></li>
             <li><a href="pengajar2.php">Pengajar</a></li>
-            <li><a href="ujian2.php">Ujian</a></li>
           </ul>
           </div
       <!-- /.navbar-collapse -->
@@ -70,6 +72,19 @@
     </nav>
 
     <!-- Section: home -->
+    <?php
+    $id = $_SESSION['id'];
+    $sql= "SELECT * FROM `users` where id = $id";
+    $query = mysqli_query($db,$sql);
+    $get = mysqli_fetch_assoc($query);
+    $nama = $get['nama'];
+    $username =$get['username'];
+    $pass = $get['pass'];
+    $email = $get['email'];
+    $alamat = $get['alamat'];
+    $hp = $get['hp'];
+
+    ?>
     <section id="home" class="home">
       <div class="home-content">
       <div class="container">
@@ -84,35 +99,41 @@
               </div>
               <div class="well well-trans">
                 <div class="wow fadeInRight" data-wow-delay="0.1s">
+                  <from class="form-signin" method="post" action="login.php">
+                    <span class="reauth-email"></span>
 
                   <ul class="lead-list">
                     <span class="label-input"> Nama Lengkap</span>
-                    <input class="input" type="text" name="name" placeholder="">
+                    <input class="input" type="text" name="name" value="<?=$nama?>" required>
                     <span class= "focus-input"></span><br><br><br>
 
                     <span class="label-input"> Email</span>
-                    <input class="input" type="email" name="email" placeholder="">
+                    <input class="input" type="email" name="email" value="<?=$email?>" required>
                     <span class= "focus-input"></span><br><br><br>
 
-                    <span class="label-input"> Username</span>
-                    <input class="input" type="text" name="name" placeholder="">
-                    <span class= "focus-input"></span><br><br><br>
-
-                    <span class="label-input"> Password</span>
-                    <input class="input" type="password" name="password" placeholder="">
+                    <span class="label-input"> Alamat</span>
+                    <input class="input" type="text" name="alamat" value="<?=$alamat?>" required>
                     <span class= "focus-input"></span><br><br><br>
 
                     <span class="label-input"> No Hp</span>
-                    <input class="input" type="number" name="number" placeholder="">
+                    <input class="input" type="hp" name="hp" value="<?=$hp?>" required>
                     <span class= "focus-input"></span><br><br><br>
 
-                    <span class="label-input">Pendidikan Terakhir</span>
-                    <input class="input" type="text" name="text" placeholder="">
+                    <span class="label-input"> Username</span>
+                    <input class="input" type="text" name="name" value="<?=$username?>" required>
                     <span class= "focus-input"></span><br><br><br>
 
-                    <p class="text-right wow bounceIn" data-wow-delay="0.4s">
-                      <a href="editprofile2.php" class="btn btn-skin btn-lg">Edit Profile <i class="fa fa-angle-right"></i></a>
-                    </p>
+                    <span class="label-input"> Password</span>
+                    <input class="input" type="password" name="pass" value="<?=$pass?>" required >
+                    <span class= "focus-input"></span><br><br><br>
+
+
+
+
+                    <!-- <p class="text-right wow bounceIn" data-wow-delay="0.4s"> -->
+                      <td scope="row"><button type="button" class="btn btn-skin btn-light" data-toggle="modal" data-target="#modaledit<?php echo $data['id']; ?>"><span>Edit</span></button></td>
+                      <!-- <a href="editprofile2.php" class="btn btn-skin btn-lg<?php echo $data['id']; ?>">Update<i class="fa fa-angle-right"></i></a> -->
+                    <!-- </p> -->
 
                   </ul>
                   <p class="text-right wow bounceIn" data-wow-delay="0.4s">
@@ -123,16 +144,13 @@
 
 
             </div>
-            <!-- <div class="col-lg-6">
-              <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
-                <br><br><br><br><br>
-                <img src="img/dummy/grup.png" class="img-responsive" alt="" />
-              </div>
-            </div> -->
+
           </div>
         </div>
       </div>
     </section>
+
+
 
 
     <footer>
@@ -235,6 +253,78 @@
   </div>
   <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 
+  <div class="modal fade" id="modaledit<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+  <h5 class="modal-title" id="exampleModalCenterTitle">Edit Data</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+  <form action="editprofile2.php" method="POST">
+
+  <div class="form-group">
+  <label for="exampleInputPassword1">Nama</label>
+  <input type="text" class="form-control" id="exampleInputNama" placeholder="nama"
+  name="nama" value="<?php echo $data ["nama"];?>">
+  </div>
+
+  <input type="hidden" name="id" value="<?php echo $data ["id"];?>">
+
+  <div class="form-group">
+  <label for="exampleInputEmail1">Email</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+  placeholder="Enter email" name="email" value="<?php echo $data ["email"];?>">
+  <small id="emailHelp" class="form-text text-muted"></small>
+  </div>
+
+  <div class="form-group">
+  <label for="exampleInputPassword1">Hp</label>
+  <input type="text" class="form-control" id="exampleInputHp" placeholder="Hp"
+  name="hp" value="<?php echo $data ["hp"];?>">
+  </div>
+
+  <div class="form-group">
+  <label for="exampleInputPassword1">Alamat</label>
+  <input type="text" class="form-control" id="exampleInputAlamat" placeholder="alamat"
+  name="alamat" value="<?php echo $data ["alamat"];?>">
+  </div>
+
+  <div class="form-group">
+  <label for="exampleInputPassword1">Username</label>
+  <input type="text" class="form-control" id="exampleInputUsername" placeholder="Username"
+  name="username" value="<?php echo $data ["username"];?>">
+  </div>
+
+  <div class="form-group">
+  <label for="exampleInputPassword1">Password</label>
+  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+  name="pass" value="<?php echo $data ["pass"];?>">
+  </div>
+
+  <div class="form-group">
+  <input type="hidden" class="form-control"
+  id="exampleInputId" name="id"
+  value="<?php echo $data ["id"];?>">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+
+  </form>
+  </div>
+
+  <div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+  </div>
+
+  </div>
+  </div>
+  </div>
+
   <!-- Core JavaScript Files -->
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -251,3 +341,37 @@
 </body>
 
 </html>
+
+<?php
+include 'database.php';
+$id = $_SESSION['id'];
+if (isset($_POST['ubah'])){
+   var_dump($nama);
+   $nama = $_POST['nama'];
+   $username = $_POST['username'];
+   $pass = $_POST['pass'];
+   $email = $_POST['email'];
+   $alamat = $_POST['alamat'];
+   $hp = $_POST['hp'];
+
+   $sql = "UPDATE `users` SET `nama`='$nama',`username`='$username',`pass`='$pass',`email`='$email', `hp`='$hp',
+   `alamat`='$alamat' WHERE id=$id";
+     $query = mysqli_query($db,$sql);
+
+     if($query){
+         ?>
+         <script type="text/javascript">
+             alert("berhasil diubah");
+             window.location.href="pengajar2.php";
+
+         </script>
+
+         <?php  } else {
+             ?>
+             <script>
+             alert("asd");
+             </script><?php
+         }
+ }
+
+ ?>

@@ -58,9 +58,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="pelajar2.php">Pelajar</a></li>
+            <li class="active"><a href="level2.php">home</a></li>
+            <li ><a href="pelajar2.php">Pelajar</a></li>
             <li><a href="pengajar2.php">Pengajar</a></li>
-            <li><a href="ujian2.php">Ujian</a></li>
           </ul>
           </div
       <!-- /.navbar-collapse -->
@@ -111,8 +111,7 @@
                         <td scope="row"><?php echo $data ["alamat"];?></td>
                         <td scope="row"><?php echo $data ["hp"];?></td>
 
-                        <td scope="row"><button type="button" class="btn btn-light" data-toggle="modal" data-target="#modaledit<?php echo $data['id']; ?>"><span>Edit</span></button></td>
-                        <td scope="row"><a class="btn btn-light" href="hapus.php?id=<?php echo $data["id"]; ?>"><span>Hapus</span></a></td>
+
                     </tr>
 
                     <div class="modal fade" id="modaledit<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -151,17 +150,13 @@
 
     <div class="form-group">
         <input type="hidden" class="form-control"
-        id="exampleInputPassword1" name="id_user"
+        id="exampleInputPassword1" name="id"
         value="<?php echo $data ["id"];?>">
     </div>
 
-    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
 </form>
         </div>
-        <!-- <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Edit</button>
-        </div> -->
+
         </div>
     </div>
     </div>

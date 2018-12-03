@@ -89,6 +89,10 @@
 
                   include("database.php");
                   $sql = mysqli_query($db, "SELECT id, nama, email, alamat, hp, username, pass  FROM users WHERE level=1");
+                  $datas = array();
+                  while ($pelajar = mysqli_fetch_array($sql)){
+                    $datas[] = $pelajar;
+                  }
                   ?>
 
                   <table class="table table-dark">
@@ -104,7 +108,10 @@
                     <!-- fungsi untuk menambah row -->
                         <?php if (mysqli_num_rows($sql)>0) {?>
                         <?php
-                            while ($data = mysqli_fetch_array($sql)){
+
+
+                              foreach ($datas as $data) {
+
                         ?>
                     <tr>
                         <td scope="row"><?php echo $data ["id"];?></td>
@@ -115,83 +122,13 @@
                         <td scope="row"><?php echo $data ["username"];?></td>
                         <td scope="row"><?php echo $data ["pass"];?></td>
                         <td scope="row"><button type="button" class="btn btn-light" data-toggle="modal" data-target="#modaledit<?php echo $data['id']; ?>"><span>Edit</span></button></td>
-                        <td scope="row"><a class="btn btn-light" href="hapus.php?id=<?php echo $data["id"]; ?>"><span>Hapus</span></a></td>
+                        <!-- <td scope="row"><a class="btn btn-light" href="hapus.php?id=<?php echo $data["id"]; ?>"><span>Hapus</span></a></td> -->
                     </tr>
-
-                    <div class="modal fade" id="modaledit<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Edit Data</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-        <form action="edit.php" method="POST">
-
-          <div class="form-group">
-              <label for="exampleInputPassword1">Nama</label>
-              <input type="text" class="form-control" id="exampleInputNama" placeholder="nama"
-              name="nama" value="<?php echo $data ["nama"];?>">
-          </div>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            placeholder="Enter email" name="email" value="<?php echo $data ["email"];?>">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Hp</label>
-        <input type="text" class="form-control" id="exampleInputHp" placeholder="Hp"
-        name="hp" value="<?php echo $data ["hp"];?>">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Alamat</label>
-        <input type="text" class="form-control" id="exampleInputAlamat" placeholder="alamat"
-        name="alamat" value="<?php echo $data ["alamat"];?>">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Username</label>
-        <input type="text" class="form-control" id="exampleInputUsername" placeholder="Username"
-        name="username" value="<?php echo $data ["username"];?>">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
-        name="password" value="<?php echo $data ["password"];?>">
-    </div>
-    <div class="form-group">
-        <input type="hidden" class="form-control"
-        id="exampleInputPassword1" name="id_user"
-        value="<?php echo $data ["id"];?>">
-    </div>
-
-    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-</form>
-        </div>
-        <!-- <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Edit</button>
-        </div> -->
-        </div>
-    </div>
-    </div>
-
-  <?php }} ?>
+<?php }} ?>
 </table>
-                  <!-- <ul class="lead-list">
-                    <a href="#"><h2>Maulana</h2></a><br>
-                    <a href="#"><h2>Alzana Sarah</h2></a><br>
-                    <a href="#"><h2>Bagus Wahyu</h2></a><br>
-                    <a href="#"><h2>Citra Sora</h2></a><br>
-                    <a href="#"><h2>Devi Rita</h2></a><br>
-                    <a href="#"><h2>Febrian</h2></a><br>
-                    <a href="#"><h2>Riska Amalia</h2></a><br>
 
-                  </ul> -->
                   <p class="text-right wow bounceIn" data-wow-delay="0.4s">
-                    <!-- <a href="#" class="btn btn-skin btn-lg">Masuk Kelas <i class="fa fa-angle-right"></i></a> -->
+                    <i class="fa fa-angle-right"></i></a>
                   </p>
                 </div>
               </div>
@@ -200,7 +137,8 @@
             </div>
             <div class="col-lg-6">
               <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
-
+                <br><br><br><br><br>
+                <img src="img/dummy/grup.png" class="img-responsive" alt="" />
               </div>
             </div>
           </div>
@@ -309,6 +247,82 @@
   </div>
   <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 
+  <?php if (mysqli_num_rows($sql)>0) {?>
+  <?php
+
+    foreach ($datas as $data) {
+
+?>
+  <div class="modal fade" id="modaledit<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalCenterTitle">Edit Data</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+
+<div class="modal-body">
+<form action="editusers.php" method="POST">
+
+<div class="form-group">
+<label for="exampleInputPassword1">Nama</label>
+<input type="text" class="form-control" id="exampleInputNama" placeholder="nama"
+name="nama" value="<?php echo $data ["nama"];?>">
+</div>
+
+<input type="hidden" name="id" value="<?php echo $data ["id"];?>">
+
+<div class="form-group">
+<label for="exampleInputEmail1">Email </label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+placeholder="Enter email" name="email" value="<?php echo $data ["email"];?>">
+<small id="emailHelp" class="form-text text-muted"></small>
+</div>
+
+<div class="form-group">
+<label for="exampleInputPassword1">Hp</label>
+<input type="text" class="form-control" id="exampleInputHp" placeholder="Hp"
+name="hp" value="<?php echo $data ["hp"];?>">
+</div>
+
+<div class="form-group">
+<label for="exampleInputPassword1">Alamat</label>
+<input type="text" class="form-control" id="exampleInputAlamat" placeholder="alamat"
+name="alamat" value="<?php echo $data ["alamat"];?>">
+</div>
+<div class="form-group">
+<label for="exampleInputPassword1">Username</label>
+<input type="text" class="form-control" id="exampleInputUsername" placeholder="Username"
+name="username" value="<?php echo $data ["username"];?>">
+</div>
+<div class="form-group">
+<label for="exampleInputPassword1">Password</label>
+<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+name="pass" value="<?php echo $data ["pass"];?>">
+</div>
+
+<div class="form-group">
+<input type="hidden" class="form-control"
+id="exampleInputId" name="id"
+value="<?php echo $data ["id"];?>">
+</div>
+
+<button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+</div>
+
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+</div>
+
+</div>
+</div>
+</div>
+<?php }} ?>
   <!-- Core JavaScript Files -->
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>

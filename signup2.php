@@ -1,7 +1,3 @@
-<?php
-require_once ('database.php');
-
- ?>
 <html lang="en">
 <head>
 	<title>STUDY INFORMATION TECHNOLOGY</title>
@@ -39,33 +35,56 @@ require_once ('database.php');
 			<div class="login100-more" style="background-image: url('images/poster1.jpg');"></div>
 
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
-				<form action="login.php" method="post">
+        <form action="daftarpengajar.php" method ="post">
 					<span class="login100-form-title p-b-59">
-						Sign In
+						Sign Up
 					</span>
+
+					<div class="wrap-input100 validate-input" data-validate="Name is required">
+						<span class="label-input100">Nama Lengkap</span>
+						<input class="input100" type="text" name="nama" placeholder="Nama Lengkap" required>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<span class="label-input100">Email</span>
+						<input class="input100" type="email" name="email" placeholder="Alamat Email " required>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<span class="label-input100">Alamat</span>
+						<input class="input100" type="text" name="alamat" placeholder="Alamat Rumah " required>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<span class="label-input100">No.HP</span>
+						<input class="input100" type="text" name="hp" placeholder="No.Hp " required>
+						<span class="focus-input100"></span>
+					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Username is required">
 						<span class="label-input100">Username</span>
-						<input class="input100" type="text" name="username" placeholder="Username">
+						<input class="input100" type="text" name="username" placeholder="Username" required>
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" placeholder="*************">
+						<input class="input100" type="password" name="pass" placeholder="*************" required>
 						<span class="focus-input100"></span>
 					</div>
-                    <input type="submit" class="btn btn-primary" value = "Sign In" name="submit">
-                            <a href ="signup.php"> <input type="button" class="login100-form-btn" value = "Sign Up" >
- </a>
+
+					<!-- <div class="flex-m w-full p-b-33">
+              <input type="radio" name="level" value="1"> Pelajar
+              <input type="radio" name="level" value="2"> Pemateri
+
+					</div> -->
+          <input type="submit" class="login100-form-btn" value = "Sign Up" name="submit">
+          <!-- <a href="index.php"><input type="button" class="btn btn-primary" value = "Sign In"></a> -->
+
 				</form>
-
-
-
-
-						</div>
-					</div>
-
 			</div>
 		</div>
 	</div>
@@ -85,34 +104,9 @@ require_once ('database.php');
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+  <script src="jquery.min.js"></script>
+  <script src="js/main.js"></script>
 	<script src="database.php"></script>
-<!-- <?php
-if (isset($_POST['submit'])) {
-	$username = $_POST['username'];
-	$pass = $_POST['pass'];
-
-	$sql = "select * from users where username = '$username' and pass ='$pass'";
-	$result = mysqli_query($conn,$sql);
-	if (mysqli_num_rows($result)>0) {
-		$row = mysqli_fetch_assoc($result);
-		if ($row['level'] == 1) {
-			$_SESSION['id_murid'] = $row['id_murid'];
-			header("Location:level1.php");
-		}elseif ($row['level'] == 2) {
-			$_SESSION['id_guru'] = $row['id_guru'];
-			header("Location:level2.php");
-		}else {
-			?>
-			<script type="text/javascript">
-			alert("Login Gagal, Username atau Password Salah !")
-			</script>
-			<?php
-		}
-		}
-  }
- ?> -->
-
 
 </body>
 </html>

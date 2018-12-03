@@ -90,7 +90,7 @@
                     <!-- <span class="glyphicon glyphicon-upload"></span><br> -->
                     <div class="container">
                       <div class="form">
-                        <from action="masukkankelas.php" method="post" enctype="multipart/form-data">
+                        <form action="masukkankelas.php" method="post" enctype="multipart/form-data">
 
                         <div class="form-group">
                         <div class="col-xs-12">
@@ -112,8 +112,9 @@
                           <input type="text" class="form-control" name="tentang" placeholder="Tentang" required>
                           <br>
                         </div>
-
-                          <input type="submit" class="btn btn-primary" value = "Save" name="submit">
+                        <button class= "btn btn-primary" type="submit" name="submit">Save
+                          <!-- <input type="button" class="btn btn-primary" value = "Save" name="submit"> -->
+                        </button>
                   </form>
                 </div>
               </div>

@@ -61,6 +61,7 @@
             <li class="active"><a href="level2.php">home</a></li>
             <li ><a href="pelajar2.php">Pelajar</a></li>
             <li><a href="pengajar2.php">Pengajar</a></li>
+            <li><a href="index.php">Close</a></li>
           </div
       <!-- /.navbar-collapse -->
       </div>
@@ -91,6 +92,14 @@
                       <div class="form">
                         <form action="masukkan.php" method="post" enctype="multipart/form-data">
 
+                          <?php $id = $_GET['id']; ?>
+                          <div class="form-group">
+                            <div class="col-xs-12">
+                            <label for="id">ID PELAJARAN:</label>
+                            <input type="text" class="form-control" name="id" value="<?php echo $id ?>"></label>
+                            <br>
+                          </div>
+"
                         <div class="form-group">
                         <div class="col-xs-12">
                           <label for="usr">Judul Materi:</label>
@@ -104,6 +113,8 @@
                           <input type="text" class="form-control" name="isi" required>
                           <br>
                         </div>
+
+
 
                         <div class="form-group">
                           <div class="col-xs-12">

@@ -64,6 +64,7 @@ include('database.php');
             <li class="active"><a href="level2.php">home</a></li>
             <li ><a href="pelajar2.php">Pelajar</a></li>
             <li><a href="pengajar2.php">Pengajar</a></li>
+            <li><a href="index.php">Close</a></li>
           </div
       <!-- /.navbar-collapse -->
       </div>

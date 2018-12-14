@@ -68,7 +68,7 @@ $sql=mysqli_query($db, "SELECT * FROM pelajaran")
             <li class="active"><a href="level1.php">Pelajar</a></li>
             <li><a href="level1.php">Kelas</a></li>
             <li><a href="level1.php">Pengajar</a></li>
-            <li><a href="ujian1.php">Ujian</a></li>
+            <li><a href="index.php">Close</a></li>
 
           </ul>
           </div

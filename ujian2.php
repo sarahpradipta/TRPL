@@ -60,7 +60,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="pelajar2.php">Pelajar</a></li>
             <li><a href="pengajar2.php">Pengajar</a></li>
-            <li><a href="ujian2.php">Ujian</a></li>
+            <li><a href="index.php">Close</a></li>
 
           </ul>
           </div

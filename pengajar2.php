@@ -64,6 +64,7 @@ require_once 'database.php';
             <li class="active"><a href="level2.php">home</a></li>
             <li ><a href="pelajar2.php">Pelajar</a></li>
             <li><a href="pengajar2.php">Pengajar</a></li>
+            <li><a href="index.php">Close</a></li>
           </ul>
           </div
       <!-- /.navbar-collapse -->
@@ -132,8 +133,7 @@ require_once 'database.php';
 
                     <!-- <p class="text-right wow bounceIn" data-wow-delay="0.4s"> -->
                       <td scope="row"><button type="button" class="btn btn-skin btn-light" data-toggle="modal" data-target="#modaledit<?php echo $data['id']; ?>"><span>Edit</span></button></td>
-                      <!-- <a href="editprofile2.php" class="btn btn-skin btn-lg<?php echo $data['id']; ?>">Update<i class="fa fa-angle-right"></i></a> -->
-                    <!-- </p> -->
+                                                                                                       vvb                                 <!-- </p> -->
 
                   </ul>
                   <p class="text-right wow bounceIn" data-wow-delay="0.4s">

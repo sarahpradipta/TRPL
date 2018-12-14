@@ -61,7 +61,7 @@
             <li class="active"><a href="pelajar3.php">Pelajar</a></li>
             <li><a href="kelas3.php">Kelas</a></li>
             <li><a href="pengajar3.php">Pengajar</a></li>
-            <li><a href="ujian3.php">Ujian</a></li>
+            <li><a href="index.php">Close</a></li>
           </ul>
           </div
       <!-- /.navbar-collapse -->
@@ -80,18 +80,16 @@
                 <h2 class="h-ultra">STUDY INFORMATION TECHNOLOGY</h2>
               </div>
               <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.1s">
-                <h4 class="h-light">Statistika Kunjungan</h4>
+                <h4 class="h-light">Selamat Datang Admin</h4>
               </div>
               <div class="well well-trans">
                 <div class="wow fadeInRight" data-wow-delay="0.1s">
 
                   <ul class="lead-list">
-                    <!-- <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Belajar secara Online</strong><br />Materi online dan video online dengan mudah ditonton</span></li>
-                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Pengajar menarik</strong><br />Pengajar lulus seleksi, terjamin ilmunya</span></li>
-                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Ujian menarik jadi tambah pintar</strong><br />Dapatkan ujian sebagai hasil anda memahami ilmu</span></li> -->
+                    Tambahakan atau cek data sekarang
                   </ul>
                   <p class="text-right wow bounceIn" data-wow-delay="0.4s">
-                    <!-- <a href="#" class="btn btn-skin btn-lg">Masuk Kelas <i class="fa fa-angle-right"></i></a> -->
+
                   </p>
                 </div>
               </div>

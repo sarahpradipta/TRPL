@@ -61,7 +61,7 @@
             <li class="active"><a href="pelajar3.php">Pelajar</a></li>
             <li><a href="kelas3.php">Kelas</a></li>
             <li><a href="pengajar3.php">Pengajar</a></li>
-            <li><a href="ujian3.php">Ujian</a></li>
+            <li><a href="index.php">Close</a></li>
           </div
       <!-- /.navbar-collapse -->
       </div>

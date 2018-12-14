@@ -1,4 +1,3 @@
-
 <html lang="en">
 
 <head>
@@ -37,7 +36,19 @@ include('database.php');
 
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
       <div class="top-area">
+
         <div class="container">
+
+              <!-- <form class="navbar-form navbar-right">
+
+
+                  <div class="btn-group">
+
+                  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <?=$_SESSION['nama'];?>  <span class="caret">  </span>
+                  </button>
+                  <ul class="dropdown-menu">
+                  <li role="presentation" class="active"><a href="index.php" style="color : white" onclick="return confirm('Yakin untuk keluar?');">  <span class="glyphicon glyphicon-log-out" aria-hidden="true">Keluar</span> </a></li>
+                  </form> -->
           <div class="row">
             <div class="col-sm-6 col-md-6">
               <p class="bold text-left">STUDY INFORMATION TECHNOLOGY</p>
@@ -61,11 +72,14 @@ include('database.php');
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+
           <ul class="nav navbar-nav">
             <li class="active"><a href="pelajar1.php">Pelajar</a></li>
             <li><a href="#kelas">Kelas</a></li>
             <li><a href="#pengajar">Pengajar</a></li>
-            <li><a href="ujian1.php">Ujian</a></li>
+            <li><a href="index.php">Close</a></li>
+            <li>
+
 
           </ul>
           </div
@@ -79,7 +93,7 @@ include('database.php');
       <div class="home-content">
       <div class="container">
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
 
               <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
                 <br><br><br><br><br><br><br><br><br><br>
@@ -92,9 +106,10 @@ include('database.php');
 
                     <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <?=$_SESSION['nama'];?>  <span class="caret">  </span>
                     </button>
-                    <ul class="dropdown-menu">
-                    <li role="presentation" class="active"><a href="index.php" style="color : white" onclick="return confirm('Yakin untuk keluar?');">  <span class="glyphicon glyphicon-log-out" aria-hidden="true">Keluar</span> </a></li>
-                    </form>
+                    <!-- <ul class="dropdown-menu">
+                    <li role="presentation" class="active"><a href="index.php" style="color : white" onclick="return confirm('Yakin untuk keluar?');">  <span class="glyphicon glyphicon-log-out" aria-hidden="true">Keluar</span> </a></li> -->
+                  </form>
+
 
               </div>
               <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.1s">
@@ -118,8 +133,7 @@ include('database.php');
             </div>
             <div class="col-lg-6">
               <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
-                <br><br><br><br><br>
-                <img src="img/dummy/grup.png" class="img-responsive" alt="" />
+                <!-- <img src="img/dummy/grup.png" class="img-responsive" alt=""/> -->
               </div>
             </div>
           </div>
@@ -150,10 +164,10 @@ include('database.php');
             <div class="wow fadeInUp" data-wow-delay="0.2s">
               <div class="box text-center">
 
-                <i class="fa fa-list-alt fa-3x circled bg-skin"></i>
-                <h4 class="h-bold">Tanya Jawab</h4>
+                <i class="fa fa-check fa-3x circled bg-skin"></i>
+                <h4 class="h-bold">Dengar dan Tonton</h4>
                 <p>
-                  Dengan mudah bertanya kepada pengajar.
+                  Dengan mudah anda dapat menonton materi dengan nyaman
                 </p>
               </div>
             </div>
@@ -161,10 +175,10 @@ include('database.php');
           <div class="col-sm-3 col-md-3">
             <div class="wow fadeInUp" data-wow-delay="0.2s">
               <div class="box text-center">
-                <i class="fa fa-user-md fa-3x circled bg-skin"></i>
-                <h4 class="h-bold">Ujian</h4>
+                <i class="fa fa-check-fa fa-3x circled bg-skin"></i>
+                <h4 class="h-bold">Akses dengan mudah</h4>
                 <p>
-                  Uji kemampuan mu dengan menjawab semua pertanyaannya.
+                  Dengan mudah anda dapat mengakses sesuai dengan materinya
                 </p>
               </div>
             </div>
@@ -198,6 +212,7 @@ include('database.php');
         </div>
       </div>
     </section>
+
     <?php
       $list = [];
       $sql = "select * from pelajaran order by id desc limit 0,6";
@@ -228,10 +243,10 @@ include('database.php');
 
             <?php foreach ($list as $row){
               ?>
-            <div class="wow fadeInRight" data-wow-delay="0.1s">
+            <div class="wow fadeInRight" data-wow-delay="0.2s">
               <div class="kelas-box">
                 <div class="kelas-icon">
-                  <span class="fa fa-stethoscope fa-3x"></span>
+                  <span class="fa fa-book fa-3x"></span>
                 </div>
                 <div class="kelas-desc">
                   <a href="tampilankelas.php?id=<?=$row['id']?>"><h5 class="h-light"><?=$row['nama_pelajaran']?></h5>

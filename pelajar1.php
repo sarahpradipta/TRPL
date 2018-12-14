@@ -63,7 +63,7 @@ require_once 'database.php';
             <li class="active"><a href="pelajar1.php">Pelajar</a></li>
             <li><a href="level1.php">Kelas</a></li>
             <li><a href="level1.php">Pengajar</a></li>
-            <li><a href="#">Ujian</a></li>
+            <li><a href="index.php">Close</a></li>
           </ul>
           </div
       <!-- /.navbar-collapse -->

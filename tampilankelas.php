@@ -63,7 +63,7 @@ require_once 'database.php';
             <li class="active"><a href="level1.php">Pelajar</a></li>
             <li><a href="level1.php">Kelas</a></li>
             <li><a href="level1.php">Pengajar</a></li>
-            <li><a href="level1.php">Ujian</a></li>
+            <li><a href="index.php">Close</a></li>
 
           </ul>
           </div
@@ -91,7 +91,9 @@ require_once 'database.php';
           <div class="row">
             <div class="col-lg-6">
               <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
+
                 <br><br><br><br><br><br><br><br><br><br>
+
                 <h2 class="h-ultra">
                   <?=$nama_pelajaran?></h2>
               </div>
@@ -100,16 +102,43 @@ require_once 'database.php';
                 <div class="wow fadeInRight" data-wow-delay="0.1s">
 
                   <ul class="lead-list">
-                    <br><?=$deskripsi?></br>
+
+                    <?php
+                    $id = $_GET['id'];
+                      $list = [];
+                      $sql = "select * from materi where id_pelajaran = $id order by id_pelajaran desc limit 0,6";
+                      $result = $db->query($sql);
+                      if (mysqli_num_rows($result)) {
+                        while ($row = mysqli_fetch_assoc($result)){
+                          $list[] = array(
+                            'id_materi' => $row['id_materi'],
+                            'judul_materi' => $row['judul_materi'],
+                            );
+                        }
+                      }
+                     ?>
+
+                     <?php foreach ($list as $row){
+                       ?>
+
+                  <p class="text-center wow bounceIn" data-wow-delay="0.4s">
+                    <a href="materi2.php?id=<?=$row['id_materi']?>"><h5 class="h-light"><?=$row['judul_materi']?></h5>
+                    </a>
+
+                    <?php
+        }
+                     ?>
+
+                    <!-- <br><?=$deskripsi?></br>
                     </ul>
 
                     <ul class="lead-list">
-                      <br><?=$tentang?></br>
+                      <br><?=$tentang?></br> -->
                       </ul>
 
-                  <p class="text-right wow bounceIn" data-wow-delay="0.4s">
+                  <!-- <p class="text-right wow bounceIn" data-wow-delay="0.4s">
                     <a href="tampilan2.php" class="btn btn-skin btn-lg">Mulai Kelas <i class="fa fa-angle-right"></i></a>
-                  </p>
+                  </p> -->
                 </div>
               </div>
 

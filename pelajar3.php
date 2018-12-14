@@ -61,7 +61,7 @@
             <li class="active"><a href="pelajar3.php">Pelajar</a></li>
             <li><a href="kelas3.php">Kelas</a></li>
             <li><a href="pengajar3.php">Pengajar</a></li>
-            <li><a href="ujian3.php">Ujian</a></li>
+            <li><a href="index.php">Close</a></li>
           </ul>
           </div
       <!-- /.navbar-collapse -->
@@ -74,7 +74,7 @@
       <div class="home-content">
       <div class="container">
           <div class="row">
-            <div class="col-lg-12">
+            <div class="col-md-12">
               <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
                 <br><br><br><br><br><br><br><br><br><br>
                 <h2 class="h-ultra">STUDY INFORMATION TECHNOLOGY</h2>

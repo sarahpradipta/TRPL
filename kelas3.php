@@ -59,7 +59,7 @@
             <li class="active"><a href="pelajar3.php">Pelajar</a></li>
             <li><a href="kelas3.php">Kelas</a></li>
             <li><a href="pengajar3.php">Pengajar</a></li>
-            <li><a href="ujian3.php">Ujian</a></li>
+            <li><a href="index.php">Close</a></li>
           </div
       <!-- /.navbar-collapse -->
       </div>
@@ -114,7 +114,7 @@
                           <td scope="row"><?php echo $data ["deskripsi"];?></td>
                           <td scope="row"><?php echo $data ["tentang"];?></td>
                           <td scope="row"><button type="button" class="btn btn-light" data-toggle="modal" data-target="#modaledit<?php echo $data['id']; ?>"><span>Edit</span></button></td>
-                          <td scope="row"><a class="btn btn-light" href="hapuskelas.php?id=<?php echo $data["id"]; ?>"><span>Hapus</span></a></td>
+                          <td scope="row"><a class="btn btn-skin" href="hapuskelas.php?id=<?php echo $data["id"]; ?>"><span>Hapus</span></a></td>
                       </tr>
 
                     <?php }} ?>
